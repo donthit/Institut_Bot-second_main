@@ -17,5 +17,7 @@ btnEduMat = KeyboardButton('📚️ Учебный материал')
 btnCongStu = KeyboardButton('🏆 Топ')
 btnMain = KeyboardButton('⬅ Главное меню')
 otherMenu = ReplyKeyboardMarkup(resize_keyboard=True).add(btnEduRes, btnCongStu, btnEduMat, btnMain)
+# добавление кнопок выше в подМеню
+
 # ----------- end menu ----------------- конец меню
 
