@@ -49,61 +49,106 @@ async def cmd_test1(message: types.Message):  # await теперь обязат�
                         " /test-check - 🧩 тесты для самоподготовки\n"
                         " /congrats-student -  🏆 топ учащихся\n", reply_markup=nav.mainMenu)
 
-
+# команды
 @dp.message_handler(commands="help")  #  помощь
 async def cmd_test1(message: types.Message):
-    await message.reply("help is working")
+    await helpOut(message)
 
 
 @dp.message_handler(commands="faq")  # типичные вопросы
 async def cmd_test1(message: types.Message):  # await теперь обязателен
-    await message.reply("faq is working")
+    await faqOut(message)
 
 
 @dp.message_handler(commands="remind-lesson")  # напомнить о занятии
 async def cmd_test1(message: types.Message):  # await теперь обязателен
-    await message.reply("remind-lesson is working")
+    await remlesOut(message)
 
 
 @dp.message_handler(commands="remind-deadline")  # напомнить о дедлайне
 async def cmd_test1(message: types.Message):  # await теперь обязателен
-    await message.reply("remind-deadline  is working")
+    await remdeadOut(message)
 
 
 @dp.message_handler(commands="test-check")   # тесты для самопроверки
 async def cmd_test1(message: types.Message):  # await тeперь обязателен
-    await message.reply("test-check is working")
+    await testcheckOut(message)
 
 
 @dp.message_handler(commands="education-result")   # об успеваемости
 async def cmd_test1(message: types.Message):  # await тeперь обязателен
-    await message.reply("education-result is working")
+    await eduresOut(message)
 
 
 @dp.message_handler(commands="education-material")  # учебный материал
 async def cmd_test1(message: types.Message):  # await тeперь обязателен
-    await message.reply("education-material is working")
+    await edumatOut(message)
 
 
 @dp.message_handler(commands="congrats-student")  # поздравление если ты харош
 async def cmd_test1(message: types.Message):  # await тeперь обязателен
-    await message.reply("congrats-student is working")
+    await congstuOut(message)
 
 
-@dp.message_handler()  #пока что попытки не обращайте внимания
+@dp.message_handler()
 async def cmd_test1(message: types.Message):
-    if message.text == '🛠 Помощь':  #
-        await message.reply("помощь")
+    if message.text == '🛠 Помощь':  #кнопочки, текст внутри message  не трогать
+        await helpOut(message)
+    elif message.text == '⁉ Частые вопросы':
+        await faqOut(message)
+    elif message.text == '🧩 Тесты':
+        await testcheckOut(message)
+    elif message.text == '🔔 Напомнить о занятии':
+        await remlesOut(message)
+    elif message.text == '🔔 Напомнить о дедлайне':
+        await remdeadOut(message)
+    elif message.text == '🎓 Успеваемость':
+        await eduresOut(message)
+    elif message.text == '📚️ Учебный материал':
+        await edumatOut(message)
+    elif message.text == '🏆 Топ':
+        await congstuOut(message)
+    elif message.text == 'Другое ➡':
+        await message.reply("Другое ➡", reply_markup=nav.otherMenu)
+    elif message.text == '⬅ Главное меню':
+        await message.reply("⬅ Главное меню", reply_markup=nav.mainMenu)
 
-    elif message.text == '⁉ Частые вопросы':  #
-        await message.reply("частые вопросы")
 
-    elif message.text == '🔔 Напомнить о занятии':  #
-        await message.reply("напомнить о занятии")
+# чтобы работало и меню и команды
+async def helpOut(message):
+    await message.reply("help h is working")
+
+
+async def faqOut(message):
+    await message.reply("faq is working")
+
+
+async def remlesOut(message):
+    await message.reply("remind-lesson is working")
+
+
+async def remdeadOut(message):
+    await message.reply("remind-deadline is working")
+
+
+async def testcheckOut(message):
+    await message.reply("test is working:")
+
+
+async def eduresOut(message):
+    await message.reply("education result is working")
+
+
+async def edumatOut(message):
+    await message.reply("education material is working")
+
+
+async def congstuOut(message):
+    await message.reply("congrats is working")
+
 
 if __name__ == "__main__":
     # Запуск бота
     executor.start_polling(dp, skip_updates=True)
-
 
 
