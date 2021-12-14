@@ -15,10 +15,7 @@ mainMenu = ReplyKeyboardMarkup(resize_keyboard=True).add(btnFaq, btnHelp, btnRem
 btnEduRes = KeyboardButton('🎓 Успеваемость')
 btnEduMat = KeyboardButton('📚️ Учебный материал')
 btnCongStu = KeyboardButton('🏆 Топ')
-otherMenu = ReplyKeyboardMarkup(resize_keyboard=True).add(btnEduRes, btnCongStu, btnEduMat)
-
-# кнопка возврата в Главное меню
 btnMain = KeyboardButton('⬅ Главное меню')
-
+otherMenu = ReplyKeyboardMarkup(resize_keyboard=True).add(btnEduRes, btnCongStu, btnEduMat, btnMain)
 # ----------- end menu ----------------- конец меню
 
