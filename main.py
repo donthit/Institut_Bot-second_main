@@ -43,11 +43,11 @@ async def error_bot_blocked(update: types.Update, exception: BotBlocked):
 async def cmd_test1(message: types.Message):  # await теперь обязателен
     await message.reply("\t Здравствуй!🤖 Бот для учебы, вот список команд:"
                         " \n /start - начало работы \n /help - 🛠 помощь \n /faq - ⁉ часто задаваемые вопросы \n"
-                        " /remind-lesson - 🔔 напомнить о занятии \n /remind-deadline - 🔔 напомнить о дедлайне \n "
-                        "/education-result - 🎓 успеваемость\n"
-                        " /education-material - 📚️ учебный материал \n"
-                        " /test-check - 🧩 тесты для самоподготовки\n"
-                        " /congrats-student -  🏆 топ учащихся\n", reply_markup=nav.mainMenu)
+                        " /remindlesson - 🔔 напомнить о занятии \n /reminddeadline - 🔔 напомнить о дедлайне \n "
+                        "/educationresult - 🎓 успеваемость\n"
+                        " /educationmaterial - 📚️ учебный материал \n"
+                        " /testcheck - 🧩 тесты для самоподготовки\n"
+                        " /congratsstudent -  🏆 топ учащихся\n", reply_markup=nav.mainMenu)
 
 # команды
 @dp.message_handler(commands="help")  #  помощь
@@ -60,32 +60,32 @@ async def cmd_test1(message: types.Message):  # await теперь обязат�
     await faqOut(message)
 
 
-@dp.message_handler(commands="remind-lesson")  # напомнить о занятии
+@dp.message_handler(commands="remindlesson")  # напомнить о занятии
 async def cmd_test1(message: types.Message):  # await теперь обязателен
     await remlesOut(message)
 
 
-@dp.message_handler(commands="remind-deadline")  # напомнить о дедлайне
+@dp.message_handler(commands="reminddeadline")  # напомнить о дедлайне
 async def cmd_test1(message: types.Message):  # await теперь обязателен
     await remdeadOut(message)
 
 
-@dp.message_handler(commands="test-check")   # тесты для самопроверки
+@dp.message_handler(commands="testcheck")   # тесты для самопроверки
 async def cmd_test1(message: types.Message):  # await тeперь обязателен
     await testcheckOut(message)
 
 
-@dp.message_handler(commands="education-result")   # об успеваемости
+@dp.message_handler(commands="educationresult")   # об успеваемости
 async def cmd_test1(message: types.Message):  # await тeперь обязателен
     await eduresOut(message)
 
 
-@dp.message_handler(commands="education-material")  # учебный материал
+@dp.message_handler(commands="educationmaterial")  # учебный материал
 async def cmd_test1(message: types.Message):  # await тeперь обязателен
     await edumatOut(message)
 
 
-@dp.message_handler(commands="congrats-student")  # поздравление если ты харош
+@dp.message_handler(commands="congratsstudent")  # поздравление если ты харош
 async def cmd_test1(message: types.Message):  # await тeперь обязателен
     await congstuOut(message)
 
@@ -116,7 +116,7 @@ async def cmd_test1(message: types.Message):
 
 # чтобы работало и меню и команды
 async def helpOut(message):
-    await message.reply("help h is working")
+    await message.reply("help  is working")
 
 
 async def faqOut(message):
@@ -124,11 +124,11 @@ async def faqOut(message):
 
 
 async def remlesOut(message):
-    await message.reply("remind-lesson is working")
+    await message.reply("remind lesson is working")
 
 
 async def remdeadOut(message):
-    await message.reply("remind-deadline is working")
+    await message.reply("remind deadline is working")
 
 
 async def testcheckOut(message):
@@ -150,5 +150,6 @@ async def congstuOut(message):
 if __name__ == "__main__":
     # Запуск бота
     executor.start_polling(dp, skip_updates=True)
+
 
 
